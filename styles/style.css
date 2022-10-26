@@ -1,0 +1,65 @@
+.Mupin::before{
+    margin-right: 5px;
+    content: url('https://i.ibb.co/LdQTyJL/logo-mupin-30px.png');
+    vertical-align: middle;
+}
+
+header{
+    width: 100%;
+}
+
+.Mupin, .nav-link{
+    color: #249C94;
+}
+
+textarea{
+    width: 207px;
+    height: 43px;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+img.fotodb{
+    width: 200px;
+}
+
+
+.logout::before{
+    content: url("../img/logout-icon.png");
+    vertical-align: middle;
+}
+
+.login::before{
+    content: url("../img/login-icon.png");
+    vertical-align: middle;
+}
+
+button a{
+    text-decoration: none;
+}
+
+button a:hover{
+    text-decoration: none;
+}
+
+button a:visited{
+    text-decoration: none;
+}
+
+.field_ricerca{
+    color: blue;
+}
+
+section.content{
+    margin: 10px;
+}
+
+figure img, figure figcaption{
+    display: inline-block;
+}

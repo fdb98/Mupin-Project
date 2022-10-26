@@ -1,0 +1,21 @@
+/*section#content{
+    background-image: linear-gradient(rgba(0, 0, 255, 0.874),rgba(255, 255, 255, 0.807));
+}*/
+
+
+.field_ricerca{
+    color: blue;
+}
+
+/* Media Query se width > 830)*/
+@media (min-width: 830px){
+    #ricerca .avd_ricerca{
+        float:left;
+    }
+
+    #ricerca .fst_ricerca{
+        float:right;
+    }
+}
+/* FINE MEDIA QUERY*/
+
