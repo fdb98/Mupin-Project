@@ -9,7 +9,8 @@ header{
 }
 
 .Mupin, .nav-link{
-    color: #249C94;
+    color: #249c94;
+    /*color: #eeecece6;*/
 }
 
 textarea{
@@ -29,16 +30,6 @@ img.fotodb{
     width: 200px;
 }
 
-
-.logout::before{
-    content: url("../img/logout-icon.png");
-    vertical-align: middle;
-}
-
-.login::before{
-    content: url("../img/login-icon.png");
-    vertical-align: middle;
-}
 
 button a{
     text-decoration: none;
@@ -62,4 +53,17 @@ section.content{
 
 figure img, figure figcaption{
     display: inline-block;
+}
+
+.btn-warning{
+    --bs-btn-color: white;
+    /*text-shadow: black;*/
+}
+
+h1{
+    color: #249C94;
+}
+
+h1 legend{
+    color: #249C94;
 }

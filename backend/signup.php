@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require("../vendor/autoload.php");
 //use Libsodium;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;

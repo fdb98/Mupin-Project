@@ -4,7 +4,8 @@ require 'vendor/autoload.php';
 
     session_start();
     $logged = $_SESSION["logged"] ?? -1;
-    if($logged!==true){
+    $admin = $_SESSION["User-ID"] ?? false;
+    if($logged!==true || $admin !=="admin@mupin.it"){
         echo "<h1>Non possiedi le autorizzazioni per questa pagina!</h1>";
         header("refresh:3; url=r-reserved_area.php");
         exit();
@@ -16,3 +17,5 @@ require 'vendor/autoload.php';
     'title' => 'Gestore Admin'
     ]);
 ?>
+
+<!--<script src="scripts\reserved-style.js"></script>-->

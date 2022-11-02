@@ -27,3 +27,5 @@ require 'vendor/autoload.php';
     'id_catalogo' => $id_catalogo,
     ]);
 ?>
+
+<!--<script src="scripts\reserved-style.js"></script>-->

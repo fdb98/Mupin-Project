@@ -3,11 +3,12 @@
 }*/
 
 
-.field_ricerca{
+/*.field_ricerca{
     color: blue;
-}
+}*/
 
 /* Media Query se width > 830)*/
+/*
 @media (min-width: 830px){
     #ricerca .avd_ricerca{
         float:left;
@@ -16,6 +17,6 @@
     #ricerca .fst_ricerca{
         float:right;
     }
-}
+}*/
 /* FINE MEDIA QUERY*/
 

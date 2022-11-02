@@ -9,6 +9,10 @@
         <link rel="icon" href="img/logo_mupin 30px.png" type="image/icon type">
         <title><?=$this->escape($title)?></title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- icons -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        
+
         <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -28,12 +32,13 @@
         <li class="nav-item"><a href="r-advance_search.php" class="nav-link">Ricerca</a></li>
         <?php
                 if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
-                    echo "<li class=\"nav-item\"><a href=\"r-login.php\" class=\"nav-link login\">Login</a></li>";
+                    echo "<li class=\"nav-item\"><a href=\"r-login.php\" class=\"nav-link login\"><i class=\"bi bi-person-circle\"></i>Login</a></li>";
                 }
                 else{
                     echo "<li class=\"nav-item\"><a href=\"r-insert.php\" class=\"nav-link\">Inserimento</a></li>";
                     echo "<li class=\"nav-item\"><a href=\"r-reserved_area.php\" class=\"nav-link\">Area Riservata</a></li>";
-                    echo "<li class=\"nav-item\"><a href=\"backend/logout.php\" class=\"nav-link logout\">Logout</a></li>";
+                    if($_SESSION["User-ID"]==="admin@mupin.it")   echo "<li class=\"nav-item\"><a href=\"r-manage_admin.php\" class=\"nav-link\">Gestore Admin</a></li>";
+                    echo "<li class=\"nav-item\"><a href=\"backend/logout.php\" class=\"nav-link logout\"><i class=\"bi bi-box-arrow-right\"></i>Logout</a></li>";
                 }
                 
             ?>
@@ -49,7 +54,7 @@
 
 <!--<div class="footer"></div>-->
 <div class="container-fluid">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
       <span class="mb-3 mb-md-0 text-muted Mupin">&copy; 2022 Mupin</span>
     </div>
@@ -73,6 +78,13 @@
     </ul>
   </footer>
 </div>
+<?php
+if(isset($_SESSION["logged"])){
+    if($_SESSION["logged"]){
+        echo '<script src="scripts\reserved-style.js"></script>';
+    }
+}
+?>
   
     </body>
 </html>

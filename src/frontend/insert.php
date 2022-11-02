@@ -19,27 +19,31 @@
     <h1>
         Inserisci un nuovo record nella categoria <?=$table?>
     </h1>
-
+<div>          <div class="alert alert-danger" role="alert">
+              N.B: Inserire un ID Catalogo che non sia già presente nel DB!
+          </div>
       <div>
         <fieldset>
           <form action="backend/insertrecord.php" method="post" enctype="multipart/form-data">
+          <?= "<input type='hidden'id='categoria' name='categoria' value='".$table."'>";?>
           <table class="table">
             <tbody class="thead-dark">
                 <?php
-                echo "<tr hidden><td><input type='hidden'id='categoria' name='categoria' value='".$table."'></td></tr>";
                 $table = ucfirst($table);
                 $table = "Classi\\".$table;
                 $rc = new ReflectionClass($table);
                 $props = $rc->getProperties();
                 echo "<tr><th scope='row'><label for='id_catalogo'>ID Catalogo*</label></th>";
-                echo "<td><input type='text' id='id_catalogo' name='id_catalogo' required></td>";
-                echo "<td><div hidden id='hiddentd'><p id='ajaxcall'>  </p></div></td>";
+                //echo "<td><input type='text' id='id_catalogo' name='id_catalogo' required> <!--<div hidden id='hiddentd'>--><p id='ajaxcall' hidden>  </p><!--</div>--></td>";
+                echo "<td><input type='text' id='id_catalogo' name='id_catalogo' required><p id='ajaxcall' hidden></p></td>";
+                echo "</tr>";
                   for($i=1; $i<($table::CAMPI); $i++){
                     echo "<tr>";
                     echo "<th scope='row'><label for=".$table::CATEGORIE[$i].">".$table::CATEGORIE[$i];
                     if($i<$table::N_OBBLIGATORI)
                         echo "*";
-                    echo "</label></th><td colspan=3>";
+                    echo "</label></th>";
+                    echo "<td>";
                     if($i===$table::CAMPI-3)
                          echo "<textarea id='".$this->e($table::CATEGORIE[$i])."' name='".$this->e($table::CATEGORIE[$i])."'></textarea></td>";
                     else{
@@ -66,26 +70,28 @@
                   }
                    ?>
               <tr>
-                <td colspan=2>
-                <label for="upfile">File:</label>
-                <input type="file" id="upfile" name="upfile[]" accept="image/x-png,image/gif,image/jpeg" multiple />
+                <th>
+                <label for="upfile">Foto:</label></th>
+                <td>
+                  <div class="input-group">
+                        <input type="file" id="upfile" name="upfile[]" class="form-control"  aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/x-png,image/gif,image/jpeg" multiple/>
+                </div>
                 </td>
               </tr>
               <tr>
-                <td colspan=2 text-align='center'>
-                  <input type="submit" value="Submit" name="submit" id="submitbutton" disabled>
-                  <input type="reset" value="Reset">
+                <td colspan=2><!--class="text-center"-->
+                <!--<span id='sp-disabled' class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Inserisci un id valido!">-->
+                  <button class='btn btn-primary'type="submit" value="Submit" name="submit" id="submitbutton" disabled>Submit</button>
+                <!--</span>-->
+                  <button class='btn btn-warning' type="reset" value="Reset" onclick="resettami()">Reset</button>
                 </td>
               </tr>
             </tbody>
           </table>
           </form>
-          <div class="alert alert-light" role="alert">
-              N.B: Inserire un ID Catalogo che non sia già presente nel DB!
-          </div>
         </fieldset>
       </div>
-
+      </div>
       <script src="scripts/ajax.js"></script>
       <script src="scripts/insert-check.js"></script>
 

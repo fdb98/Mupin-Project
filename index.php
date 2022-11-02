@@ -8,4 +8,6 @@ echo $templateas->render('home'
 , [
 'title' => 'MUPIN Home!',
 ]);
+
+
 ?>

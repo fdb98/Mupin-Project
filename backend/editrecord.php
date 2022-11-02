@@ -121,7 +121,7 @@
             //if($ext=="jpeg") $ext ="jpg";
             $ext= ($ext=="jpeg") ? "jpg" : $ext;
             $filter = new Filter();
-            if($filter->isImage($ext)!==false){
+            if($filter->isImage(".".$ext)===true){
                 $pos_trovata = false;
                 $path_provv = $path;
                 do{

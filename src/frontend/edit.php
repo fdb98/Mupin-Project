@@ -37,8 +37,9 @@
               echo "<input type='hidden' id='categoria' name='categoria' value='".$table."'>"; 
               echo "<input type='hidden' id='id_attuale' name='id_attuale' value='".$this->e($record->id_catalogo)."'>";
               echo "<tr><th scope='row'><label for='id_catalogo'>ID Catalogo*</label></th>";
-              echo "<td><input type='text' id='id_catalogo' name='id_catalogo' value='".$this->e($record->id_catalogo)."' required></td>";
-              echo "<td id='hiddentd'><p id='ajaxcall'>  </p></td></tr>";
+              //echo "<td><input type='text' id='id_catalogo' name='id_catalogo' value='".$this->e($record->id_catalogo)."' required></td>";
+              echo "<td><input type='text' id='id_catalogo' name='id_catalogo' value='".$this->e($record->id_catalogo)."' required> <p id='ajaxcall' hidden>  </p></td>";
+              //echo "<td id='hiddentd'><p id='ajaxcall'>  </p></td></tr>";
               echo "<input type='hidden' id='changed' name='changed' value='not_changed'>";
                 for($i=1; $i<($record::CAMPI); $i++){
                   echo "<tr>";
@@ -91,19 +92,25 @@
                   for($i=0; $i<$trov; $i++){
                       echo "<input type=\"hidden\" value=\"".$this->e($record->n_foto)."\" id='n_foto' >";
                       echo "<tr><td class='fotodb'><img class='fotodb' src='".$this->e($path.$img[$i])."' id='".$this->e($path.$img[$i])."'></td>";
-                      echo "<td><button type='button' onclick='elimina_foto(\"".$this->e($path.$img[$i])."\")' id='btn-".$this->e($path.$img[$i])."'>Elimina</button></td></tr>";
+                      echo "<td><button type='button' class='btn btn-danger' onclick='elimina_foto(\"".$this->e($path.$img[$i])."\")' id='btn-".$this->e($path.$img[$i])."'>Elimina</button></td></tr>";
                   }
                   ?>
                   <tr>
                     <th scope='row'><label for="upfile">Aggiungi Foto</label></th>
                   </tr>
                   <tr>
-                    <td><input type="file" id="upfile" name="upfile[]" accept="image/x-png,image/gif,image/jpeg" multiple></td>
+                    <td>
+                      <!-- saasdasdasd -->
+                      <div class="input-group">
+                        <input type="file" id="upfile" name="upfile[]" class="form-control"  aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/x-png,image/gif,image/jpeg" multiple>
+                      </div>
+                      <!-- bootstrap -->
+                      <!--<input type="file" id="upfile" id="inputGroupFile04" accept="image/x-png,image/gif,image/jpeg" multiple></td>-->
                 </tr>               
               <tr>
                 <td class='bottoni-submit' colspan=3>
-                  <input type="submit" value="Submit" name="submit" id="submitbutton" disabled>
-                  <input type="reset" value="Reset" onclick="resettami()" id="reset">
+                  <button type="submit" class='btn btn-primary' value="Submit" name="submit" id="submitbutton" disabled>Submit</button>
+                  <button type="reset" class='btn btn-warning' value="Reset" onclick="resettami()" id="reset">Reset</button>
                 </td>
               </tr>
             </tbody>

@@ -1,27 +1,33 @@
 <?php declare(strict_types=1); ?>
+<div class='container'>
 <fieldset>
-    <legend>Inserimento Nuovo Elemento</legend>
-    <label>Scegli la categoria</label>
-    <select id="insert_categoria">
-        <?php
-        use Classidb\Classlogin;
-        $cn = new Classlogin;
-        $pdo = $cn->usernopermit();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query= "SELECT TABLE_NAME 
-        FROM INFORMATION_SCHEMA.TABLES
-        WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='mupin' AND TABLE_NAME!='id'";
-        $sth = $pdo->prepare($query);
-        $sth->execute();
-        $row = $sth->fetchAll();
-        foreach($row as $r){
-            echo "<option>".$r[0]."</option>";
-        }
-        ?>
-    </select>
-    <button type='button' onclick="inserisci()">Vai</button>
-</fieldset>
-
+    <h1><legend>Inserimento Nuovo Elemento</legend></h1>
+    <div class='row'>
+        <div class="input-group mb-3">
+            <button class='btn btn-light' disabled><label for="insert_categoria">Scegli la categoria</label></button>
+            <select id="insert_categoria" name="insert_categoria" class="form-select" aria-label="Inserisci Categoria">
+                <ul class='dropdown-menu'>
+                <?php
+                    use Classidb\Classlogin;
+                    $cn = new Classlogin;
+                    $pdo = $cn->usernopermit();
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $query= "SELECT TABLE_NAME 
+                    FROM INFORMATION_SCHEMA.TABLES
+                    WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='mupin' AND TABLE_NAME!='id'";
+                    $sth = $pdo->prepare($query);
+                    $sth->execute();
+                    $row = $sth->fetchAll();
+                    foreach($row as $r){
+                        echo "<li class='dropdown-item'><option>".$r[0]."</option></li>";
+                    }
+                    ?>
+                </ul>
+            </select>
+        <button type='button' class='btn btn-info' onclick="inserisci()">Vai</button></div>
+    </div>
+</fieldset>    
+</div>
 <script>
     function inserisci(){
         let categoria = $('#insert_categoria :selected').text();        

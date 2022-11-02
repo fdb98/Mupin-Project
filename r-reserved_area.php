@@ -21,3 +21,4 @@ echo $templateas->render('reservedarea'
     ]);
 ?>
 
+<!--<script src="scripts\reserved-style.js"></script>-->

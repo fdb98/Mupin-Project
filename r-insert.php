@@ -27,3 +27,4 @@ require 'vendor/autoload.php';
     'categoria' => $categoria
     ]);
 ?>
+<!--<script src="scripts\reserved-style.js"></script>-->
