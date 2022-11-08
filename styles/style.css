@@ -13,6 +13,10 @@ header{
     /*color: #eeecece6;*/
 }
 
+/*.Mupin:hover{
+    color:white;
+}*/
+
 textarea{
     width: 207px;
     height: 43px;
@@ -66,4 +70,17 @@ h1{
 
 h1 legend{
     color: #249C94;
+}
+
+i::before{
+    margin-right: 2px;
+}
+
+#divbutton{
+    margin-top: 20px;
+}
+
+
+.nav-link:hover{
+    color:white;
 }

@@ -11,12 +11,12 @@ if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
     echo '</script>';  
     exit(); 
 }
-echo "<head><link rel=\"stylesheet\" href=\"styles/style-reserved.css\"/></head>";
+//echo "<head><link rel=\"stylesheet\" href=\"styles/style-reserved.css\"/></head>";
 use League\Plates\Engine;
 $templateas = new Engine('src/frontend');
-echo $templateas->render('reservedarea'
+echo $templateas->render('fr-change-psw'
     , [
-    'title' => 'Area Riservata!',
+    'title' => 'Cambia Password!',
     'name' => $_SESSION["User-ID"]
     ]);
 ?>

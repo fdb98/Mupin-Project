@@ -17,3 +17,6 @@
 - CSS per varie robe
 
 - Fix Buttone Catalogo
+
+
+- JS nel fr-change-psw.php o

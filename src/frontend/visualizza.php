@@ -15,5 +15,3 @@
         echo "<button class=\"btn btn-danger\" onclick=\"location.href='r-delete.php?id_catalogo=".$id_catalogo."&table=".$table."'\">Pagina Elimina</button></td></tr>";
     }
 ?>
-
-<!--<script src="scripts\reserved-style.js"></script>-->

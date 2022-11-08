@@ -1,11 +1,11 @@
 <?php declare(strict_types=1); ?>
 <div class='container'>
 <fieldset>
-    <h1><legend>Inserimento Nuovo Elemento</legend></h1>
+    <h2 class="field_ricerca">Inserimento Nuovo Elemento</h2>
     <div class='row'>
         <div class="input-group mb-3">
-            <button class='btn btn-light' disabled><label for="insert_categoria">Scegli la categoria</label></button>
-            <select id="insert_categoria" name="insert_categoria" class="form-select" aria-label="Inserisci Categoria">
+            <button class='btn btn-dark shadow' type="button"><label for="insert_categoria">Scegli la categoria</label></button>
+            <select id="insert_categoria" name="insert_categoria" class="form-select shadow" aria-label="Inserisci Categoria">
                 <ul class='dropdown-menu'>
                 <?php
                     use Classidb\Classlogin;
@@ -24,7 +24,7 @@
                     ?>
                 </ul>
             </select>
-        <button type='button' class='btn btn-info' onclick="inserisci()">Vai</button></div>
+        <button type='button' class='btn btn-info shadow' onclick="inserisci()">Vai</button></div>
     </div>
 </fieldset>    
 </div>

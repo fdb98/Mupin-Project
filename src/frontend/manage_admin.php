@@ -15,13 +15,14 @@
 
     <div>
       <fieldset>
-          <table class="table">
+          <table class="table thead-dark">
             <thead>
                 <th>User</th>
                 <th>Permessi</th>
+                <th>Password</th>
                 <th>Elimina</th>
             </thead>
-            <tbody class="thead-dark">
+            <tbody>
               <?php
                 
                 for($i=0; $i<$sth->rowCount(); $i++){
@@ -30,28 +31,27 @@
                   $user_admin = $user_admin[0];
                   echo "<td><p id='user_$i'>$user_admin</p></td>";
                   echo "<td><input type='checkbox' value='".false."'/></td>";
+                  echo "<td><button type='button' class='btn btn-warning' data-bs-toggle=\"modal\" data-bs-target=\"#changePswModal\" onclick=\"newPswClick('".$user_admin."')\">Cambia Password</button></td>";
                   echo "<td><button class='btn btn-danger' type='button' onclick='elimina_admin($i)'>Elimina</button></td>";
                   echo "</tr>";
                 }
                 
               ?>
-                          
-              <tr>
-                <td class='bottoni-submit' colspan=3>
-                
+              </tbody>
+          </table>                         
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
                   Nuovo Admin
                 </button>
-
+                
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Aggiungi Nuovo Admin</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.reload()"></button>
                       </div>
                       <div class="modal-body">
                       <form id="mioform">
@@ -68,36 +68,43 @@
                             </div>
                       
                             <!-- Submit button -->
-                            <button type="button" class="btn btn-primary btn-block" onclick="signup()">Sign up</button>
                             <button type="reset" class="btn btn-warning">Reset</button>
+                            <button type="button" class="btn btn-primary btn-block" onclick="signup()">Sign up</button>
                           </form>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.reload()">Close</button>
-                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                       </div>
                     </div>
                   </div>
                 </div>
 
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                
+            <?php /******* MODAL NEW PASSWORD***** */ ?>
+                <!-- Modal -->
+                <div class="modal fade" id="changePswModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cambia Password</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.reload()"></button>
+                      </div>
+                      <div class="modal-body">
+                        <?= $this->insert('form-change-psw')?>
+                      
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.reload()">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
         </form>
       </fieldset>
     </div>
     <script src="scripts/elimina.js"></script>
-    <script>
-      function popitup(url) {
-        newwindow=window.open(url,'name','height=409,width=283').focus();
-        return false;
-        }
-        function parentCallback(){
-          alert("Admin aggiunto!");
-          window.location.reload();
-        }
-    </script>
+    <script src="scripts/newpsw.js"></script>
 
     <script>
       function signup(params) {
@@ -123,5 +130,6 @@
     function validateEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
+
       
     </script>

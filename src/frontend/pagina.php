@@ -28,16 +28,16 @@
       </a>
 
       <ul class="nav nav-pills ">
-        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="r-advance_search.php" class="nav-link">Ricerca</a></li>
+        <li class="nav-item"><a href="index.php" class="nav-link"><i class="bi bi-house-door"></i>Home</a></li>
+        <li class="nav-item"><a href="r-advance_search.php" class="nav-link"><i class="bi bi-search"></i>Ricerca</a></li>
         <?php
                 if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
                     echo "<li class=\"nav-item\"><a href=\"r-login.php\" class=\"nav-link login\"><i class=\"bi bi-person-circle\"></i>Login</a></li>";
                 }
                 else{
-                    echo "<li class=\"nav-item\"><a href=\"r-insert.php\" class=\"nav-link\">Inserimento</a></li>";
-                    echo "<li class=\"nav-item\"><a href=\"r-reserved_area.php\" class=\"nav-link\">Area Riservata</a></li>";
-                    if($_SESSION["User-ID"]==="admin@mupin.it")   echo "<li class=\"nav-item\"><a href=\"r-manage_admin.php\" class=\"nav-link\">Gestore Admin</a></li>";
+                    echo "<li class=\"nav-item\"><a href=\"r-insert.php\" class=\"nav-link\"><i class=\"bi bi-box-arrow-in-up\"></i>Inserimento</a></li>";
+                    echo "<li class=\"nav-item\"><a href=\"r-reserved_area.php\" class=\"nav-link\"><i class=\"bi bi-lock\"></i>Area Riservata</a></li>";
+                    if($_SESSION["User-ID"]==="admin@mupin.it")   echo "<li class=\"nav-item\"><a href=\"r-manage_admin.php\" class=\"nav-link\"><i class=\"bi bi-shield-lock\"></i>Gestore Admin</a></li>";
                     echo "<li class=\"nav-item\"><a href=\"backend/logout.php\" class=\"nav-link logout\"><i class=\"bi bi-box-arrow-right\"></i>Logout</a></li>";
                 }
                 

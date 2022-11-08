@@ -38,8 +38,8 @@
 
     <form action="backend/fs_aimed.php"  method="post">
         <fieldset>
-        <h2><legend class="field_ricerca">Ricerca Veloce e Precisa</legend></h2>    
-        <div class="input-group mb-3">
+        <h2 class="field_ricerca">Ricerca Veloce e Precisa</h2>    
+        <div class="input-group mb-3 shadow">
             <button type="button" class='btn btn-dark'><label for='fst_categoria1'>Categoria</label></button>
             <select class="btn btn-light dropdown-toggle" id="fst_categoria1" name="fst_categoria"  data-bs-toggle="dropdown" aria-expanded="false">
             <ul class="dropdown-menu">
@@ -61,7 +61,7 @@
                     ?>
             </ul>
             </select>
-            <button type="button" class='btn btn-primary'><label for='fst_idcatalogo'>Catalogo</label></button>
+            <button type="button" class='btn btn-primary'><label for='fst_idcatalogo'>ID Catalogo</label></button>
             <input type="text" id="fst_idcatalogo" name="id_catalogo" class="form-control" aria-label="ID Catalogo" required>
             <button type="submit" class='btn btn-warning'>Cerca</button>
         </div>

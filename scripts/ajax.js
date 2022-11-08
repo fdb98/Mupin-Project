@@ -12,10 +12,14 @@ function check(){
         'success': function(data) {
             //document.getElementById("hiddentd").removeAttribute("hidden");
             idajax.removeAttribute("hidden");
+            const idcat =document.getElementById("id_catalogo")
             if(data==1){ //id presente nel catalogo
                 idajax.innerHTML= "<i class=\"bi bi-x-circle\"></i>ID Non Disponibile";
                 idajax.classList.remove("green");
                 idajax.classList.add("red");
+
+                idcat.classList.add("is-invalid");
+                idcat.classList.remove("is-valid");
                 document.getElementById("submitbutton").setAttribute("disabled",true);
                 bol=1;
 
@@ -25,6 +29,8 @@ function check(){
                 idajax.innerHTML= "<i class=\"bi bi-check2-circle\"></i>ID Disponibile";
                 idajax.classList.add("green");
                 idajax.classList.remove("red");
+                idcat.classList.add("is-valid");
+                idcat.classList.remove("is-invalid");
                 document.getElementById("submitbutton").removeAttribute("disabled");
                 //document.getElementById('sp-disabled').setAttribute("hidden",true);
                 bol=0;

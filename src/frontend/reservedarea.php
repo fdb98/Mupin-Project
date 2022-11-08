@@ -6,19 +6,21 @@
     <div>
     <?php
         if($_SESSION["User-ID"] === "admin@mupin.it"){
-            echo "<button type='button' class='btn btn-success' onclick='location.href=\"r-manage_admin.php\"'>Gestore Admin</button>";
+            echo "<button type='button' class='btn btn-success shadow' onclick='location.href=\"r-manage_admin.php\"'>Gestore Admin</button>";
         }
     ?>
-        <button type='button' class='btn btn-danger' onclick="location.href='backend/logout.php'">Logout</button>
+        <button type='button' class='btn btn-danger shadow' onclick="location.href='backend/logout.php'">Logout</button>
         <hr>
     </div>
     <div class="row">
       <div class="col">
           <?php echo $this->insert('advance_search')?>
       </div>
+      <hr>
       <div class="col">
           <?php echo $this->insert('fast_search')?>
       </div>
+      <hr>
     </div>
     <div class="row">
       <?php echo $this->insert('cat_insert', ['function' => 'redirect'])?>

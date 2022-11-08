@@ -35,7 +35,8 @@
                 $props = $rc->getProperties();
                 echo "<tr><th scope='row'><label for='id_catalogo'>ID Catalogo*</label></th>";
                 //echo "<td><input type='text' id='id_catalogo' name='id_catalogo' required> <!--<div hidden id='hiddentd'>--><p id='ajaxcall' hidden>  </p><!--</div>--></td>";
-                echo "<td><input type='text' id='id_catalogo' name='id_catalogo' required><p id='ajaxcall' hidden></p></td>";
+                echo "<td><input class='form-control' type='text' id='id_catalogo' name='id_catalogo' required><p id='ajaxcall' hidden></p>
+                </td>";
                 echo "</tr>";
                   for($i=1; $i<($table::CAMPI); $i++){
                     echo "<tr>";
@@ -45,7 +46,7 @@
                     echo "</label></th>";
                     echo "<td>";
                     if($i===$table::CAMPI-3)
-                         echo "<textarea id='".$this->e($table::CATEGORIE[$i])."' name='".$this->e($table::CATEGORIE[$i])."'></textarea></td>";
+                         echo "<textarea class='form-control' id='".$this->e($table::CATEGORIE[$i])."' name='".$this->e($table::CATEGORIE[$i])."'></textarea></td>";
                     else{
                         switch($props[$i]->getType()->getName()){
                           case "int":
@@ -58,7 +59,7 @@
                               $type = "number' step='0.01";
                               break;
                         }
-                        echo "<input type='$type' id='".$this->e($table::CATEGORIE[$i])."' name='".$this->e($table::CATEGORIE[$i])."' ";
+                        echo "<input class='form-control' type='$type' id='".$this->e($table::CATEGORIE[$i])."' name='".$this->e($table::CATEGORIE[$i])."' ";
                         if(strtolower($table::CATEGORIE[$i])==="anno"){
                           echo " step='1' min='1800' max='2099' placeholder='YYYY'";
                         }
@@ -81,9 +82,10 @@
               <tr>
                 <td colspan=2><!--class="text-center"-->
                 <!--<span id='sp-disabled' class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Inserisci un id valido!">-->
-                  <button class='btn btn-primary'type="submit" value="Submit" name="submit" id="submitbutton" disabled>Submit</button>
-                <!--</span>-->
                   <button class='btn btn-warning' type="reset" value="Reset" onclick="resettami()">Reset</button>
+                  
+                <!--</span>-->
+                  <button class='btn btn-primary'type="submit" value="Submit" name="submit" id="submitbutton" disabled>Submit</button>
                 </td>
               </tr>
             </tbody>

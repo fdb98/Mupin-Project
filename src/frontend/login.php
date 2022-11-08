@@ -11,7 +11,7 @@
     
         <div class="form-floating">
           <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-          <label for="floatingInput">Email address</label>
+          <label for="floatingInput">Indirizzo Email</label>
         </div>
         <div class="form-floating">
           <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
@@ -36,11 +36,11 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> <!-- w-100 -->
-            
+                    <button class="w-100 btn btn-lg btn-warning" type="reset" value="Reset">Reset</button>
                 </div>
                 <div class="col">
-                    <button class="w-100 btn btn-lg btn-warning" type="reset" value="Reset">Reset</button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> <!-- w-100 -->
+            
                 </div>
             </div>
         </div>
