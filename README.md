@@ -9,3 +9,11 @@ in quanto ho cercato di sviluppare meglio altre cose (ad esempio le chiamate AJA
 
 Sulla mia macchina i test dovevano essere avviati lanciando phpunit e il file specifico "DataTester.php", non sono riuscito a capire il perché.
 
+
+
+----- COME AGGIUNGERE UNA TABELLA ---------
+
+    - Aggiungere la tabella al DB
+    - Creare Classe Relativa alla tabella seguendo l'esempio delle altre classi
+
+-------------------------------------------

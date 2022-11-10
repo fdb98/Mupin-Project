@@ -12,39 +12,47 @@
         <!-- icons -->
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         
+        
+        
 
         <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="styles/style.css"/>
+
     </head>
     <body>
-    
-    <div class="container-fluid bg-dark">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
-      <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <span class="fs-4 Mupin">Mupin</span>
-      </a>
+    <nav class="navbar-expand-lg">
+      <div class="container-fluid cnt-nvb">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+          <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+            <span class="fs-4 Mupin">Mupin</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="index.php" class="nav-link"><i class="bi bi-house-door"></i>Home</a></li>
+              <li class="nav-item"><a href="r-advance_search.php" class="nav-link"><i class="bi bi-search"></i>Ricerca</a></li>
+              <?php
+                      if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
+                          echo "<li class=\"nav-item\"><a href=\"r-login.php\" class=\"nav-link login\"><i class=\"bi bi-person-circle\"></i>Login</a></li>";
+                      }
+                      else{
+                          echo "<li class=\"nav-item\"><a href=\"r-insert.php\" class=\"nav-link\"><i class=\"bi bi-box-arrow-in-up\"></i>Inserimento</a></li>";
+                          echo "<li class=\"nav-item\"><a href=\"r-reserved_area.php\" class=\"nav-link\"><i class=\"bi bi-lock\"></i>Area Riservata</a></li>";
+                          if($_SESSION["User-ID"]==="admin@mupin.it")   echo "<li class=\"nav-item\"><a href=\"r-manage_admin.php\" class=\"nav-link\"><i class=\"bi bi-shield-lock\"></i>Gestore Admin</a></li>";
+                          echo "<li class=\"nav-item\"><a href=\"backend/logout.php\" class=\"nav-link logout\"><i class=\"bi bi-box-arrow-right\"></i>Logout</a></li>";
+                      }
 
-      <ul class="nav nav-pills ">
-        <li class="nav-item"><a href="index.php" class="nav-link"><i class="bi bi-house-door"></i>Home</a></li>
-        <li class="nav-item"><a href="r-advance_search.php" class="nav-link"><i class="bi bi-search"></i>Ricerca</a></li>
-        <?php
-                if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]){
-                    echo "<li class=\"nav-item\"><a href=\"r-login.php\" class=\"nav-link login\"><i class=\"bi bi-person-circle\"></i>Login</a></li>";
-                }
-                else{
-                    echo "<li class=\"nav-item\"><a href=\"r-insert.php\" class=\"nav-link\"><i class=\"bi bi-box-arrow-in-up\"></i>Inserimento</a></li>";
-                    echo "<li class=\"nav-item\"><a href=\"r-reserved_area.php\" class=\"nav-link\"><i class=\"bi bi-lock\"></i>Area Riservata</a></li>";
-                    if($_SESSION["User-ID"]==="admin@mupin.it")   echo "<li class=\"nav-item\"><a href=\"r-manage_admin.php\" class=\"nav-link\"><i class=\"bi bi-shield-lock\"></i>Gestore Admin</a></li>";
-                    echo "<li class=\"nav-item\"><a href=\"backend/logout.php\" class=\"nav-link logout\"><i class=\"bi bi-box-arrow-right\"></i>Logout</a></li>";
-                }
-                
-            ?>
-      </ul>
-    </header>
-  </div>
+                  ?>
+            </ul>
+          </div>
+        </header>
+      </div>
+    </nav>
 
 
 
@@ -85,6 +93,5 @@ if(isset($_SESSION["logged"])){
     }
 }
 ?>
-  
     </body>
 </html>

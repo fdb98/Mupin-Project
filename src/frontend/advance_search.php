@@ -1,4 +1,4 @@
-<h2 class="field_ricerca">Ricerca Avanzata</h2>
+<h2 class="field_ricerca green">Ricerca Avanzata</h2>
 <div class="row g-3">
 <div class="input-group mb-3">
 <button type="button" class='btn btn-dark shadow-sm' style="width: 50%;"><label for="adv_categoria" >Categoria:</label></button>

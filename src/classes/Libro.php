@@ -24,6 +24,7 @@
     {
         $this->$name = $value;
     }
+    
         public function __get($name)
         {
             return $this->$name;

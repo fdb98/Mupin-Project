@@ -20,3 +20,5 @@
 
 
 - JS nel fr-change-psw.php o
+
+- Gestire numero dei campi massimi

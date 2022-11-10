@@ -11,6 +11,7 @@ require 'vendor/autoload.php';
         exit();
     }
     use League\Plates\Engine;
+    echo "<link rel='stylesheet' href='styles\mng-admin.css'>";
     $templateas = new Engine('src/frontend');
     echo $templateas->render('manage_admin'
     , [

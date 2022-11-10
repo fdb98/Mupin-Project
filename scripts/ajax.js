@@ -84,7 +84,7 @@ function resettami(){
     document.getElementById("submitbutton").setAttribute("disabled",true);
     //document.getElementById("hiddentd").setAttribute("hidden",true);
     document.getElementById("ajaxcall").setAttribute("hidden",true);
-    document.getElementById("changed").value='not-changed';
+    if(document.getElementById("changed")) document.getElementById("changed").value='not-changed';
     typingTimer = setTimeout(check_edit, 2500);
 }
 

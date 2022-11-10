@@ -14,4 +14,4 @@
 </div>
 <?php echo $this->insert('fast_search',['title' => $title])?>
 <hr>
-<button class='btn btn-success' onclick="location.href='r-advance_search.php'">Ricerca Avanzata</button>
+<button class='btn btn-primary' onclick="location.href='r-advance_search.php'">Ricerca Avanzata</button>
